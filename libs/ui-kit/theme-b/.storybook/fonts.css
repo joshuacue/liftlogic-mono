@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+html {
+  font-size: 10px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  :root {
+    font-size: 10px;
+  }
+
+  html {
+    scroll-behavior: smooth !important;
+  }
+
+  body {
+    font-size: 10px;
+    scroll-behavior: smooth !important;
+  }
+}
+
+@layer components {
+  .animate-progressStripe {
+    animation: progressStripe 6s;
+  }
+
+  .animate-progressMove {
+    animation: progressMove 6s;
+  }
+
+  .animate-colorAnimation {
+    animation: colorAnimation 1s infinite;
+  }
+}
+
+@keyframes progressStripe {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes progressMove {
+  0% {
+    width: 5%;
+    background-color: #f9bcca;
+  }
+  100% {
+    width: 85%;
+    background-color: #ef476f;
+  }
+}
+
+@keyframes colorAnimation {
+  /* Your color animation keyframes */
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+.animate-move {
+  @apply bg-green-500;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: move 7s linear infinite;
+}

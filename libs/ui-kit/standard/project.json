@@ -1,0 +1,16 @@
+{
+  "name": "ui-kit-standard",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui-kit/standard/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui-kit/standard/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

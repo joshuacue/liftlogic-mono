@@ -1,0 +1,51 @@
+query GetPageLayout($siteId: String!, $slug: String!) {
+  Pages(
+    where: { AND: [{ site: { equals: $siteId } }, { slug: { equals: $slug } }] }
+    limit: 1
+  ) {
+    docs {
+      layout {
+        __typename
+        ... on AShortformBlock {
+          attention
+          attentionMessage
+          sectionHeader
+          sectionSubheader
+          id
+          blockName
+          blockType
+          sectionHeader
+          sectionSubheader
+          callUsMessage
+          callUsNumber
+          form {
+            ...Form
+          }
+          footerBadges {
+            iconUrl
+            text
+          }
+        }
+        ... on AThankYouBlock {
+          messages {
+            action
+            status
+          }
+          id
+          blockName
+          blockType
+          congratsMessageList {
+            message
+          }
+          callButtonText
+          subMessage
+          phoneNumber
+          obligationMessage
+          initialTime
+          header
+        }
+        ...APrivacyPolicyBlock
+      }
+    }
+  }
+}

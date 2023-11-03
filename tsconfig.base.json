@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@liftlogic/data-access": ["libs/data-access/src/index.ts"],
+      "@liftlogic/shared/next-apollo-client": [
+        "libs/shared/next-apollo-client/src/index.ts"
+      ],
+      "@liftlogic/shared/next-apollo-client/server": [
+        "libs/shared/next-apollo-client/src/server.ts"
+      ],
+      "@liftlogic/ui-kit/modern": ["libs/ui-kit/modern/src/index.ts"],
+      "@liftlogic/ui-kit/modern/server": ["libs/ui-kit/modern/src/server.ts"],
+      "@liftlogic/ui-kit/standard": ["libs/ui-kit/standard/src/index.ts"],
+      "@liftlogic/ui-kit/standard/server": [
+        "libs/ui-kit/standard/src/server.ts"
+      ],
+      "@liftlogic/ui-kit/theme-b": ["libs/ui-kit/theme-b/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

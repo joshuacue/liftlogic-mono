@@ -1,0 +1,41 @@
+version: '3'
+
+includes:
+  client:
+    taskfile: ./apps/client/Taskfile.yml
+    dir: ./apps/client
+
+  data-access:
+    taskfile: ./libs/data-access/Taskfile.yml
+    dir: ./libs/data-access
+
+tasks:
+  format:
+    desc: Format all files
+    cmds:
+      - nx reset && nx format
+
+  install:
+    desc: Install package dependencies
+    cmds:
+      - nx reset && yarn
+
+  ci:check:
+    desc: Run all CI tests locally before pushing to catch errors
+    cmds:
+      - nx affected --target=lint
+      - nx run-many --target=codegen
+      - nx affected --target=test
+      - nx affected --target=build --configuration=ci
+      - nx format
+
+  codegen:
+    cmds:
+      - nx run-many --target=codegen && nx reset
+
+  up:
+    desc: start the app e.g. /n task up app=client
+    cmds:
+      - nx serve {{.app}}
+    vars:
+      app: '{{.app}}'

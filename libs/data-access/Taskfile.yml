@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  codegen:
+    desc: generate frontend queries from CMS
+    cmds:
+      - cd ../../ && nx run data-access:codegen && nx reset

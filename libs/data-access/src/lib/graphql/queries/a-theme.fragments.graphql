@@ -1,0 +1,220 @@
+fragment AFormBlock on AFormBlock {
+  form {
+    ...Form
+  }
+  id
+  blockName
+  blockType
+  sectionHeader
+  sectionSubheader
+  sectionDescription
+  formSubheader
+  formHeader
+  noteContent
+  noteTitle
+  sectionImage {
+    url
+    filename
+  }
+}
+
+fragment Form on Form {
+  id
+  title
+  fields {
+    __typename
+    ... on Text {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Textarea {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Select {
+      name
+      label
+      width
+      options {
+        label
+        value
+        id
+      }
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Email {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on State {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Country {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Number {
+      name
+      label
+      width
+      required
+      id
+      blockName
+      blockType
+    }
+    ... on Checkbox {
+      name
+      label
+      width
+      required
+      defaultValue
+      id
+      blockName
+      blockType
+    }
+    ... on Message {
+      message
+      id
+      blockName
+      blockType
+    }
+  }
+  submitButtonLabel
+  confirmationType
+  confirmationMessage
+  redirect {
+    url
+  }
+  emails {
+    emailTo
+    cc
+    bcc
+    replyTo
+    emailFrom
+    subject
+    message
+    id
+  }
+  updatedAt
+  createdAt
+}
+
+fragment ASectionWithImageBlock on ASectionWithImageBlock {
+  title
+  description
+  backgroundColor
+  media {
+    url
+    id
+    filename
+  }
+  enableLink
+  link {
+    url
+    label
+  }
+  id
+  blockName
+  blockType
+  direction
+}
+
+fragment AFooterBlock on AFooterBlock {
+  navItems {
+    link {
+      label
+      url
+    }
+  }
+  id
+  blockName
+  blockType
+}
+
+fragment AHeaderBlock on AHeaderBlock {
+  title
+  phoneNumber
+  phoneNumberLabel
+  companylogo {
+    url
+    alt
+  }
+  id
+  blockName
+  blockType
+}
+
+fragment AListSectionBlock on AListSectionBlock {
+  blockType
+  sectionFooter
+  listItems
+  id
+  blockName
+  link {
+    label
+    url
+  }
+  backgroundColor
+  enableLink
+}
+
+fragment ACallToActionBlock on ACallToActionBlock {
+  title
+  phoneNumber
+  clickToCallLabel
+  description
+  id
+  blockName
+  blockType
+  backgroundColor
+}
+
+fragment AConsultationSectionBlock on AConsultationSectionBlock {
+  backgroundImage {
+    alt
+    url
+  }
+  blockName
+  phoneNumber
+  id
+  formLink
+  blockType
+  title
+  formLinkLabel
+}
+
+fragment APrivacyPolicyBlock on APrivacyPolicy {
+  privacyPolicy
+  id
+  blockName
+  blockType
+}

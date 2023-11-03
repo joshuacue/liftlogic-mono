@@ -1,0 +1,30 @@
+query GetLandingPageLayout($siteId: String!) {
+  LandingPages(where: { site: { equals: $siteId } }, limit: 1) {
+    docs {
+      layout {
+        __typename
+        ... on AFormBlock {
+          ...AFormBlock
+        }
+        ... on ASectionWithImageBlock {
+          ...ASectionWithImageBlock
+        }
+        ... on AFooterBlock {
+          ...AFooterBlock
+        }
+        ... on AHeaderBlock {
+          ...AHeaderBlock
+        }
+        ... on AListSectionBlock {
+          ...AListSectionBlock
+        }
+        ... on ACallToActionBlock {
+          ...ACallToActionBlock
+        }
+        ... on AConsultationSectionBlock {
+          ...AConsultationSectionBlock
+        }
+      }
+    }
+  }
+}

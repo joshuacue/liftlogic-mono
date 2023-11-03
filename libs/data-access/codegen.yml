@@ -1,0 +1,15 @@
+overwrite: true
+generates:
+  libs/data-access/src/lib/gql.ts:
+    schema: 'http://localhost:8000/api/graphql'
+    documents: 'libs/data-access/src/lib/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      # Put `plugin-typescript-swr` below `typescript-graphql-request`
+      - typescript-rtk-query:
+          importBaseApiFrom: './api/baseApi'
+          exportHooks: true
+config:
+  rawRequest: false
+  autogenSWRKey: true

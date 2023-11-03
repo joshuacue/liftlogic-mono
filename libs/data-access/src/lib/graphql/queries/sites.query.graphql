@@ -1,0 +1,33 @@
+query GetSiteByName($title: String!) {
+  Sites(where: { title: { equals: $title } }) {
+    docs {
+      id
+      address
+      createdAt
+      description
+      faqs {
+        faq {
+          answer
+          id
+          question
+        }
+        name
+      }
+      title
+      url
+      updatedAt
+      logo {
+        id
+        alt
+        updatedAt
+        createdAt
+        url
+        filename
+        mimeType
+        filesize
+        width
+        height
+      }
+    }
+  }
+}

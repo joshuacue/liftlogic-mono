@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  up:
+    desc: start the lead app named CLIENT
+    cmds:
+      - cd ../../.. && nx reset && nx serve client
